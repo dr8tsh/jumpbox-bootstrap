@@ -38,7 +38,6 @@ cf install-plugin -r CF-Community "drains" -f
 
 
 # Install Credhub Client (latest)
-echo.
 echo Installing Credhub Client...
 echo ----------------------------
 curl -s https://api.github.com/repos/cloudfoundry-incubator/credhub-cli/releases/latest | jq -r ".assets[] | select(.name | contains(\"linux\")) | .browser_download_url" | wget -O credhub.tgz -i -
@@ -46,7 +45,6 @@ tar -xvf credhub.tgz
 sudo mv credhub /usr/local/bin
 
 # Install BBR
-echo.
 echo Installing BBR...
 echo -----------------
 curl -s https://api.github.com/repos/cloudfoundry-incubator/bosh-backup-and-restore/releases/latest | jq -r ".assets[] | select(.name | contains(\"linux\")) | .browser_download_url" | wget -O bbr -i -
@@ -54,7 +52,6 @@ chmod +x bbr
 sudo mv bbr /usr/local/bin
 
 # Installing OM
-echo.
 echo Installing OM Tool...
 echo ---------------------
 
@@ -63,7 +60,6 @@ chmod +x om-linux
 sudo mv om-linux /usr/local/bin/om
 
 # Installing Pivnet Tool
-echo.
 echo Installing Pivnet CLI...
 echo ------------------------
 wget https://github.com/pivotal-cf/pivnet-cli/releases/download/v0.0.55/pivnet-linux-amd64-0.0.55
@@ -71,13 +67,11 @@ sudo chmod +x pivnet-linux-amd64-0.0.55
 sudo mv pivnet-linux-amd64-0.0.55 /usr/local/bin/pivnet
 
 # Installing acme.sh Script...
-echo.
 echo Installing acme.sh...
 echo ---------------------
 curl https://get.acme.sh | sh
 source ~/.bashrc
 
-echo.
 echo Updating .profile...
 echo --------------------
 cat >>~/.profile <<EOL
@@ -97,5 +91,4 @@ export BOSH_CLIENT_SECRET=
 EOL
 
 
-echo.
 echo Complete!
